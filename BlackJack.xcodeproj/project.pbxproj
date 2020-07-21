@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		342C48E83FFE5FCA01AC7797 /* Pods_BlackJack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456881608E4A70E57DEF7EF4 /* Pods_BlackJack.framework */; };
+		82060B4524C6FAD800D58A7F /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4424C6FAD800D58A7F /* RootNavigationController.swift */; };
+		82060B4724C7058E00D58A7F /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82060B4624C7058E00D58A7F /* Game.xcassets */; };
 		8229441124C69E5E000397F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229441024C69E5E000397F7 /* AppDelegate.swift */; };
 		8229441324C69E5E000397F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229441224C69E5E000397F7 /* SceneDelegate.swift */; };
-		8229441524C69E5E000397F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229441424C69E5E000397F7 /* ViewController.swift */; };
 		8229441A24C69E63000397F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8229441924C69E63000397F7 /* Assets.xcassets */; };
 		8229441D24C69E63000397F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8229441B24C69E63000397F7 /* LaunchScreen.storyboard */; };
 		82ED439724C6B75B00647FD4 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED439624C6B75B00647FD4 /* GameController.swift */; };
@@ -48,7 +49,6 @@
 		82ED446E24C6C71500647FD4 /* Navigo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED444C24C6C71500647FD4 /* Navigo.swift */; };
 		82ED446F24C6C71500647FD4 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED444E24C6C71500647FD4 /* UIViewController+Alert.swift */; };
 		82ED447024C6C71500647FD4 /* UIViewController+AddChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED444F24C6C71500647FD4 /* UIViewController+AddChildVC.swift */; };
-		82ED447124C6C71500647FD4 /* InfoExt.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82ED445024C6C71500647FD4 /* InfoExt.plist */; };
 		82ED44D724C6C7B500647FD4 /* SizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED447424C6C7B400647FD4 /* SizeHelper.swift */; };
 		82ED44D824C6C7B500647FD4 /* DeviceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED447524C6C7B400647FD4 /* DeviceHelper.swift */; };
 		82ED44EF24C6C7B500647FD4 /* BiometricAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED449924C6C7B400647FD4 /* BiometricAuth.swift */; };
@@ -72,7 +72,6 @@
 		82ED451324C6C7B500647FD4 /* Reusable+Table+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED44CC24C6C7B500647FD4 /* Reusable+Table+Collection.swift */; };
 		82ED451424C6C7B500647FD4 /* ResponderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED44CD24C6C7B500647FD4 /* ResponderDelegate.swift */; };
 		82ED451524C6C7B500647FD4 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED44CE24C6C7B500647FD4 /* Identifiable.swift */; };
-		82ED451624C6C7B500647FD4 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED44CF24C6C7B500647FD4 /* CustomFont.swift */; };
 		82ED451724C6C7B500647FD4 /* PushPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED44D124C6C7B500647FD4 /* PushPopAnimator.swift */; };
 		82ED451824C6C7B500647FD4 /* TableKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED44D324C6C7B500647FD4 /* TableKeyboardObserver.swift */; };
 		82ED451924C6C7B500647FD4 /* KeyboardObserverMonoConstraintChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED44D424C6C7B500647FD4 /* KeyboardObserverMonoConstraintChanger.swift */; };
@@ -84,17 +83,17 @@
 		1D36A81FAE180B095A066138 /* Pods-BlackJack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackJack.release.xcconfig"; path = "Target Support Files/Pods-BlackJack/Pods-BlackJack.release.xcconfig"; sourceTree = "<group>"; };
 		456881608E4A70E57DEF7EF4 /* Pods_BlackJack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlackJack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		816B098A71EE0464ED936F45 /* Pods-BlackJack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackJack.debug.xcconfig"; path = "Target Support Files/Pods-BlackJack/Pods-BlackJack.debug.xcconfig"; sourceTree = "<group>"; };
+		82060B4424C6FAD800D58A7F /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		82060B4624C7058E00D58A7F /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
 		8229440D24C69E5E000397F7 /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8229441024C69E5E000397F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8229441224C69E5E000397F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8229441424C69E5E000397F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8229441924C69E63000397F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8229441C24C69E63000397F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8229441E24C69E63000397F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82ED439624C6B75B00647FD4 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		82ED439824C6B79300647FD4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		82ED439A24C6B7D700647FD4 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
-		82ED442224C6C71500647FD4 /* UIKit_Extensions_CustomComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIKit_Extensions_CustomComponents.h; sourceTree = "<group>"; };
 		82ED442524C6C71500647FD4 /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		82ED442724C6C71500647FD4 /* CheckBoxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
 		82ED442824C6C71500647FD4 /* OneTapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTapButton.swift; sourceTree = "<group>"; };
@@ -127,7 +126,6 @@
 		82ED444C24C6C71500647FD4 /* Navigo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigo.swift; sourceTree = "<group>"; };
 		82ED444E24C6C71500647FD4 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		82ED444F24C6C71500647FD4 /* UIViewController+AddChildVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddChildVC.swift"; sourceTree = "<group>"; };
-		82ED445024C6C71500647FD4 /* InfoExt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfoExt.plist; sourceTree = "<group>"; };
 		82ED447424C6C7B400647FD4 /* SizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeHelper.swift; sourceTree = "<group>"; };
 		82ED447524C6C7B400647FD4 /* DeviceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceHelper.swift; sourceTree = "<group>"; };
 		82ED449924C6C7B400647FD4 /* BiometricAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricAuth.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 		82ED44CC24C6C7B500647FD4 /* Reusable+Table+Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+Table+Collection.swift"; sourceTree = "<group>"; };
 		82ED44CD24C6C7B500647FD4 /* ResponderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderDelegate.swift; sourceTree = "<group>"; };
 		82ED44CE24C6C7B500647FD4 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
-		82ED44CF24C6C7B500647FD4 /* CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		82ED44D124C6C7B500647FD4 /* PushPopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushPopAnimator.swift; sourceTree = "<group>"; };
 		82ED44D324C6C7B500647FD4 /* TableKeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableKeyboardObserver.swift; sourceTree = "<group>"; };
 		82ED44D424C6C7B500647FD4 /* KeyboardObserverMonoConstraintChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserverMonoConstraintChanger.swift; sourceTree = "<group>"; };
@@ -192,17 +189,34 @@
 		8229440F24C69E5E000397F7 /* BlackJack */ = {
 			isa = PBXGroup;
 			children = (
-				82ED447224C6C7B400647FD4 /* Helpers */,
-				82ED442124C6C71500647FD4 /* UIKit+Extensions+CustomComponents */,
-				82ED439524C6B73700647FD4 /* GameScreen */,
 				8229441024C69E5E000397F7 /* AppDelegate.swift */,
 				8229441224C69E5E000397F7 /* SceneDelegate.swift */,
-				8229441424C69E5E000397F7 /* ViewController.swift */,
-				8229441924C69E63000397F7 /* Assets.xcassets */,
+				82060B4424C6FAD800D58A7F /* RootNavigationController.swift */,
 				8229441B24C69E63000397F7 /* LaunchScreen.storyboard */,
 				8229441E24C69E63000397F7 /* Info.plist */,
+				82ED447224C6C7B400647FD4 /* Helpers */,
+				82ED442124C6C71500647FD4 /* UIKit+Extensions+CustomComponents */,
+				8235D54E24C6F70900230ADA /* Resources */,
+				8235D54D24C6F6EF00230ADA /* Moduls */,
 			);
 			path = BlackJack;
+			sourceTree = "<group>";
+		};
+		8235D54D24C6F6EF00230ADA /* Moduls */ = {
+			isa = PBXGroup;
+			children = (
+				82ED439524C6B73700647FD4 /* GameScreen */,
+			);
+			path = Moduls;
+			sourceTree = "<group>";
+		};
+		8235D54E24C6F70900230ADA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8229441924C69E63000397F7 /* Assets.xcassets */,
+				82060B4624C7058E00D58A7F /* Game.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		82ED439524C6B73700647FD4 /* GameScreen */ = {
@@ -234,10 +248,8 @@
 		82ED442124C6C71500647FD4 /* UIKit+Extensions+CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
-				82ED442224C6C71500647FD4 /* UIKit_Extensions_CustomComponents.h */,
 				82ED442324C6C71500647FD4 /* UIKit+CustomUI */,
 				82ED443424C6C71500647FD4 /* UKit+Extensions */,
-				82ED445024C6C71500647FD4 /* InfoExt.plist */,
 			);
 			path = "UIKit+Extensions+CustomComponents";
 			sourceTree = "<group>";
@@ -492,7 +504,6 @@
 				82ED44CC24C6C7B500647FD4 /* Reusable+Table+Collection.swift */,
 				82ED44CD24C6C7B500647FD4 /* ResponderDelegate.swift */,
 				82ED44CE24C6C7B500647FD4 /* Identifiable.swift */,
-				82ED44CF24C6C7B500647FD4 /* CustomFont.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -595,7 +606,7 @@
 			files = (
 				8229441D24C69E63000397F7 /* LaunchScreen.storyboard in Resources */,
 				8229441A24C69E63000397F7 /* Assets.xcassets in Resources */,
-				82ED447124C6C71500647FD4 /* InfoExt.plist in Resources */,
+				82060B4724C7058E00D58A7F /* Game.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,7 +683,6 @@
 				82ED451924C6C7B500647FD4 /* KeyboardObserverMonoConstraintChanger.swift in Sources */,
 				82ED446024C6C71500647FD4 /* UILabel+Init.swift in Sources */,
 				82ED445624C6C71500647FD4 /* RadioButton.swift in Sources */,
-				8229441524C69E5E000397F7 /* ViewController.swift in Sources */,
 				82ED44EF24C6C7B500647FD4 /* BiometricAuth.swift in Sources */,
 				82ED445424C6C71500647FD4 /* HighlitedButton.swift in Sources */,
 				82ED445924C6C71500647FD4 /* PaddingLabel.swift in Sources */,
@@ -696,6 +706,7 @@
 				82ED445524C6C71500647FD4 /* ContactButton.swift in Sources */,
 				82ED445724C6C71500647FD4 /* RoundHeightButton.swift in Sources */,
 				8229441124C69E5E000397F7 /* AppDelegate.swift in Sources */,
+				82060B4524C6FAD800D58A7F /* RootNavigationController.swift in Sources */,
 				82ED44F324C6C7B500647FD4 /* QRHelper.swift in Sources */,
 				82ED451824C6C7B500647FD4 /* TableKeyboardObserver.swift in Sources */,
 				8229441324C69E5E000397F7 /* SceneDelegate.swift in Sources */,
@@ -705,7 +716,6 @@
 				82ED451524C6C7B500647FD4 /* Identifiable.swift in Sources */,
 				82ED445A24C6C71500647FD4 /* AutoFontLabel.swift in Sources */,
 				82ED44F524C6C7B500647FD4 /* AccauntSaver.swift in Sources */,
-				82ED451624C6C7B500647FD4 /* CustomFont.swift in Sources */,
 				82ED446224C6C71500647FD4 /* UIImageVIew+Init.swift in Sources */,
 				82ED446B24C6C71500647FD4 /* UIVIew+Dimmed.swift in Sources */,
 				82ED44FA24C6C7B500647FD4 /* Accaunt.swift in Sources */,

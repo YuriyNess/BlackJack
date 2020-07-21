@@ -12,7 +12,6 @@ import UIKit
 class SizeHelper {
     static let screen = UIScreen.main.bounds
     
-    //414,896
     private struct DeviceSizes {
         static let iPhone11ProMax = (width: CGFloat(414), height: CGFloat(896))
         static let iPhoneX = (width: CGFloat(375), height: CGFloat(812))

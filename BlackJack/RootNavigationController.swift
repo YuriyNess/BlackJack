@@ -1,5 +1,5 @@
 //
-//  GameController.swift
+//  RootNavigationController.swift
 //  BlackJack
 //
 //  Created by YuriyFpc on 21.07.2020.
@@ -8,13 +8,7 @@
 
 import UIKit
 
-final class GameController: UIViewController {
-    
-    let mainView = GameView()
-    
-    override func loadView() {
-        view = mainView
-    }
+final class RootNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,5 +16,7 @@ final class GameController: UIViewController {
     }
     
     private func initViewController() {
+        isToolbarHidden = true
+        isNavigationBarHidden = true
     }
 }

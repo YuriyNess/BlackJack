@@ -33,11 +33,6 @@ class PushPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             }) { (_) in
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
-//            UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-//                to.view.transform = .identity
-//            }, completion: { finished in
-//                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-//            })
         } else if operation == .pop {
             to.view.transform = .identity
             transitionContext.containerView.insertSubview(to.view, belowSubview: from.view)
@@ -47,12 +42,6 @@ class PushPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 from.view.transform = .identity
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
-//            UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-//                from.view.transform = rightTransform
-//            }, completion: { finished in
-//                from.view.transform = .identity
-//                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-//            })
         }
     }
 }
