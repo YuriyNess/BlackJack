@@ -11,13 +11,23 @@ import SnapKit
 
 final class CardCell: UICollectionViewCell {
     
-    let text: UILabel = {
+    let topValue: UILabel = {
         let obj = UILabel()
         obj.translatesAutoresizingMaskIntoConstraints = false
-        obj.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        obj.font = UIFont.systemFont(ofSize: SizeHelper.sizeW(17), weight: .medium)
         obj.textColor = .black
-        obj.text = "Text"
-        obj.textAlignment = .center
+        obj.text = ""
+        obj.textAlignment = .left
+        obj.adjustsFontSizeToFitWidth = true
+        obj.minimumScaleFactor = 0.6
+        return obj
+    }()
+    
+    let suitImage: UIImageView = {
+        let obj = UIImageView(image: UIImage(named: ""))
+        obj.translatesAutoresizingMaskIntoConstraints = false
+        obj.contentMode = .scaleAspectFill
+        obj.clipsToBounds = true
         return obj
     }()
     
@@ -32,9 +42,19 @@ final class CardCell: UICollectionViewCell {
     }
     
     private func setup() {
-        addSubview(text)
-        text.snp.makeConstraints { (make) in
-            make.centerX.centerY.equalToSuperview()
+        addSubview(topValue)
+        addSubview(suitImage)
+        
+        topValue.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(SizeHelper.sizeW(4))
+            make.leading.equalToSuperview().offset(SizeHelper.sizeW(4))
+            make.trailing.equalToSuperview().offset(SizeHelper.sizeW(-4))
+        }
+        
+        suitImage.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(SizeHelper.sizeH(-16))
+            make.centerX.equalToSuperview()
+            make.width.height.equalTo(SizeHelper.sizeW(44))
         }
     }
 }

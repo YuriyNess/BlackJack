@@ -14,6 +14,7 @@
 		82060B4B24C727B000D58A7F /* PlayerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4A24C727B000D58A7F /* PlayerCollectionView.swift */; };
 		82060B4E24C72B2C00D58A7F /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4D24C72B2C00D58A7F /* CardCell.swift */; };
 		82060B5024C72CD400D58A7F /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4F24C72CD400D58A7F /* Deck.swift */; };
+		82060B5224C7519100D58A7F /* UICollectionView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B5124C7519100D58A7F /* UICollectionView+Scroll.swift */; };
 		8229441124C69E5E000397F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229441024C69E5E000397F7 /* AppDelegate.swift */; };
 		8229441324C69E5E000397F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229441224C69E5E000397F7 /* SceneDelegate.swift */; };
 		8229441A24C69E63000397F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8229441924C69E63000397F7 /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		82060B4A24C727B000D58A7F /* PlayerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionView.swift; sourceTree = "<group>"; };
 		82060B4D24C72B2C00D58A7F /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		82060B4F24C72CD400D58A7F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		82060B5124C7519100D58A7F /* UICollectionView+Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Scroll.swift"; sourceTree = "<group>"; };
 		8229440D24C69E5E000397F7 /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8229441024C69E5E000397F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8229441224C69E5E000397F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				82ED443924C6C71500647FD4 /* UILabel+Init.swift */,
 				82ED443A24C6C71500647FD4 /* UIStackView+Padding.swift */,
 				82ED443B24C6C71500647FD4 /* UIImageVIew+Init.swift */,
+				82060B5124C7519100D58A7F /* UICollectionView+Scroll.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				82ED446924C6C71500647FD4 /* UIView+State.swift in Sources */,
 				82ED451324C6C7B500647FD4 /* Reusable+Table+Collection.swift in Sources */,
 				82ED445124C6C71500647FD4 /* TitleCell.swift in Sources */,
+				82060B5224C7519100D58A7F /* UICollectionView+Scroll.swift in Sources */,
 				82ED451724C6C7B500647FD4 /* PushPopAnimator.swift in Sources */,
 				82ED445224C6C71500647FD4 /* CheckBoxButton.swift in Sources */,
 				82ED446524C6C71500647FD4 /* UIButton+Init.swift in Sources */,

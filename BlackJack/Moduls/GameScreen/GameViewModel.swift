@@ -7,6 +7,10 @@
 //
 
 final class GameViewModel {
-    var opponentCards: [String] = []
-    var playerCards: [String] = ["1","2","3"]
+    
+    var deck = Deck()
+    
+    var opponentCards: [Card] = []
+    var playerCards: [Card] = []
 }
+

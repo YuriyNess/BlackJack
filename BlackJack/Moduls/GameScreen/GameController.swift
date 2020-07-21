@@ -40,8 +40,15 @@ final class GameController: UIViewController {
 //MARK: - Actions
 extension GameController {
     @objc private func addOneMoreCard() {
-        viewModel.playerCards.append("+1")
+        guard let card = viewModel.deck.takeCardFromTop() else {
+            return // TODO alert this is last card
+        }
+        
+        viewModel.playerCards.append(card)
         mainView.playerCardsCollection.reloadData()
+        
+        guard let lastItemIndex = mainView.playerCardsCollection.lastIndexPath() else { return }
+        mainView.playerCardsCollection.scrollToItem(at: lastItemIndex, at: .right, animated: true)
     }
 }
 
@@ -57,14 +64,34 @@ extension GameController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView is OpponentCollectionView {
             let cell: CardCell = collectionView.dequeueReusableCell(for: indexPath)
-            cell.backgroundColor = .white
-            cell.text.text = viewModel.opponentCards[indexPath.row]
+            let card = viewModel.opponentCards[indexPath.row]
+            setup(cell: cell, card: card)
             return cell
         } else {
             let cell: CardCell = collectionView.dequeueReusableCell(for: indexPath)
-            cell.backgroundColor = .orange
-            cell.text.text = viewModel.playerCards[indexPath.row]
+            let card = viewModel.playerCards[indexPath.row]
+            setup(cell: cell, card: card)
             return cell
+        }
+    }
+    
+    private func setup(cell: CardCell, card: Card) {
+        cell.topValue.text = card.value.rawValue
+        cell.suitImage.image = UIImage(named: card.suit.getImageName())?.withRenderingMode(.alwaysTemplate)
+        cell.suitImage.tintColor = getColor(suit: card.suit)
+        cell.backgroundColor = .white
+    }
+    
+    private func getColor(suit: Suits) -> UIColor {
+        switch suit {
+        case .clubs:
+            return .black
+        case .diamonds:
+            return .red
+        case .hearts:
+            return .red
+        case .spades:
+            return .black
         }
     }
 }
