@@ -8,7 +8,5 @@
 
 final class GameViewModel {
     var opponentCards: [String] = []
-    var playerCards: [String] = []
-    
-    
+    var playerCards: [String] = ["1","2","3"]
 }

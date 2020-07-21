@@ -52,10 +52,10 @@ final class GameView: UIView {
         return obj
     }()
     
-    let opponentCardsCollection: UICollectionView = {
+    let opponentCardsCollection: OpponentCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let obj = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let obj = OpponentCollectionView(frame: .zero, collectionViewLayout: layout)
         obj.translatesAutoresizingMaskIntoConstraints = false
         obj.registerReusableCell(UICollectionViewCell.self)
         obj.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
@@ -129,10 +129,10 @@ final class GameView: UIView {
         return obj
     }()
     
-    let playerCardsCollection: UICollectionView = {
+    let playerCardsCollection: PlayerCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let obj = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let obj = PlayerCollectionView(frame: .zero, collectionViewLayout: layout)
         obj.translatesAutoresizingMaskIntoConstraints = false
         obj.registerReusableCell(UICollectionViewCell.self)
         obj.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)

@@ -10,6 +10,10 @@
 		342C48E83FFE5FCA01AC7797 /* Pods_BlackJack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456881608E4A70E57DEF7EF4 /* Pods_BlackJack.framework */; };
 		82060B4524C6FAD800D58A7F /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4424C6FAD800D58A7F /* RootNavigationController.swift */; };
 		82060B4724C7058E00D58A7F /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82060B4624C7058E00D58A7F /* Game.xcassets */; };
+		82060B4924C7278E00D58A7F /* OpponentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4824C7278E00D58A7F /* OpponentCollectionView.swift */; };
+		82060B4B24C727B000D58A7F /* PlayerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4A24C727B000D58A7F /* PlayerCollectionView.swift */; };
+		82060B4E24C72B2C00D58A7F /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4D24C72B2C00D58A7F /* CardCell.swift */; };
+		82060B5024C72CD400D58A7F /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4F24C72CD400D58A7F /* Deck.swift */; };
 		8229441124C69E5E000397F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229441024C69E5E000397F7 /* AppDelegate.swift */; };
 		8229441324C69E5E000397F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229441224C69E5E000397F7 /* SceneDelegate.swift */; };
 		8229441A24C69E63000397F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8229441924C69E63000397F7 /* Assets.xcassets */; };
@@ -85,6 +89,10 @@
 		816B098A71EE0464ED936F45 /* Pods-BlackJack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackJack.debug.xcconfig"; path = "Target Support Files/Pods-BlackJack/Pods-BlackJack.debug.xcconfig"; sourceTree = "<group>"; };
 		82060B4424C6FAD800D58A7F /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		82060B4624C7058E00D58A7F /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
+		82060B4824C7278E00D58A7F /* OpponentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentCollectionView.swift; sourceTree = "<group>"; };
+		82060B4A24C727B000D58A7F /* PlayerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionView.swift; sourceTree = "<group>"; };
+		82060B4D24C72B2C00D58A7F /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		82060B4F24C72CD400D58A7F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		8229440D24C69E5E000397F7 /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8229441024C69E5E000397F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8229441224C69E5E000397F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +242,9 @@
 		82ED439C24C6B7E600647FD4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				82060B4824C7278E00D58A7F /* OpponentCollectionView.swift */,
+				82060B4A24C727B000D58A7F /* PlayerCollectionView.swift */,
+				82060B4D24C72B2C00D58A7F /* CardCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,6 +252,7 @@
 		82ED439D24C6B7ED00647FD4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				82060B4F24C72CD400D58A7F /* Deck.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -661,6 +673,7 @@
 			files = (
 				82ED446724C6C71500647FD4 /* UIColor+Enums.swift in Sources */,
 				82ED439B24C6B7D700647FD4 /* GameViewModel.swift in Sources */,
+				82060B4E24C72B2C00D58A7F /* CardCell.swift in Sources */,
 				82ED446124C6C71500647FD4 /* UIStackView+Padding.swift in Sources */,
 				82ED44F924C6C7B500647FD4 /* SaveManager.swift in Sources */,
 				82ED44F724C6C7B500647FD4 /* TokenSaverLoader.swift in Sources */,
@@ -688,6 +701,7 @@
 				82ED445924C6C71500647FD4 /* PaddingLabel.swift in Sources */,
 				82ED44F624C6C7B500647FD4 /* AuthState.swift in Sources */,
 				82ED44D724C6C7B500647FD4 /* SizeHelper.swift in Sources */,
+				82060B4924C7278E00D58A7F /* OpponentCollectionView.swift in Sources */,
 				82ED44FF24C6C7B500647FD4 /* DeviceVersion.swift in Sources */,
 				82ED446624C6C71500647FD4 /* UIColor+rgb.swift in Sources */,
 				82ED451A24C6C7B500647FD4 /* LayoutKeyboardObserver.swift in Sources */,
@@ -699,6 +713,7 @@
 				82ED450024C6C7B500647FD4 /* AMobileErrorDescription.swift in Sources */,
 				82ED44F424C6C7B500647FD4 /* DefaultAlertHelper.swift in Sources */,
 				82ED44F224C6C7B500647FD4 /* ImageViewLoader.swift in Sources */,
+				82060B5024C72CD400D58A7F /* Deck.swift in Sources */,
 				82ED446D24C6C71500647FD4 /* Roboto.swift in Sources */,
 				82ED445824C6C71500647FD4 /* SoundedButton.swift in Sources */,
 				82ED44FC24C6C7B500647FD4 /* TokenLoaderProtocol.swift in Sources */,
@@ -715,6 +730,7 @@
 				82ED44F124C6C7B500647FD4 /* NetworkHelper.swift in Sources */,
 				82ED451524C6C7B500647FD4 /* Identifiable.swift in Sources */,
 				82ED445A24C6C71500647FD4 /* AutoFontLabel.swift in Sources */,
+				82060B4B24C727B000D58A7F /* PlayerCollectionView.swift in Sources */,
 				82ED44F524C6C7B500647FD4 /* AccauntSaver.swift in Sources */,
 				82ED446224C6C71500647FD4 /* UIImageVIew+Init.swift in Sources */,
 				82ED446B24C6C71500647FD4 /* UIVIew+Dimmed.swift in Sources */,

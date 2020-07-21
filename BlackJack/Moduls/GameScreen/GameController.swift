@@ -11,6 +11,7 @@ import UIKit
 final class GameController: UIViewController {
     
     let mainView = GameView()
+    private let viewModel = GameViewModel()
     
     override func loadView() {
         view = mainView
@@ -19,25 +20,52 @@ final class GameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewController()
+        setupActions()
     }
     
     private func initViewController() {
         mainView.opponentCardsCollection.dataSource = self
         mainView.opponentCardsCollection.delegate = self
+        mainView.opponentCardsCollection.registerReusableCell(CardCell.self)
         mainView.playerCardsCollection.dataSource = self
         mainView.playerCardsCollection.delegate = self
+        mainView.playerCardsCollection.registerReusableCell(CardCell.self)
+    }
+    
+    private func setupActions() {
+        mainView.oneMoreCard.addTarget(self, action: #selector(addOneMoreCard), for: .touchUpInside)
+    }
+}
+
+//MARK: - Actions
+extension GameController {
+    @objc private func addOneMoreCard() {
+        viewModel.playerCards.append("+1")
+        mainView.playerCardsCollection.reloadData()
     }
 }
 
 extension GameController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if collectionView is OpponentCollectionView {
+            return viewModel.opponentCards.count
+        } else {
+            return viewModel.playerCards.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.backgroundColor = .white
-        return cell
+        if collectionView is OpponentCollectionView {
+            let cell: CardCell = collectionView.dequeueReusableCell(for: indexPath)
+            cell.backgroundColor = .white
+            cell.text.text = viewModel.opponentCards[indexPath.row]
+            return cell
+        } else {
+            let cell: CardCell = collectionView.dequeueReusableCell(for: indexPath)
+            cell.backgroundColor = .orange
+            cell.text.text = viewModel.playerCards[indexPath.row]
+            return cell
+        }
     }
 }
 
