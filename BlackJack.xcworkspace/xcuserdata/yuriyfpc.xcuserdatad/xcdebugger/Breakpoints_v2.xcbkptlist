@@ -39,16 +39,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6929BE80-5B02-4943-A687-433F4E5869DF"
+            uuid = "2A150BD7-6C80-43AD-A73D-6FB0185E7A06"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BlackJack/Moduls/GameScreen/GameController.swift"
+            filePath = "BlackJack/Moduls/GameScreen/GameViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "addOneMoreCard()"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "opponentFinishTurn()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

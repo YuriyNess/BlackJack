@@ -19,11 +19,13 @@ final class GameController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initViewController()
+        setupViewController()
         setupActions()
+        setupViewModelCallBacks()
+        viewModel.refreshGameScore()
     }
     
-    private func initViewController() {
+    private func setupViewController() {
         mainView.opponentCardsCollection.dataSource = self
         mainView.opponentCardsCollection.delegate = self
         mainView.opponentCardsCollection.registerReusableCell(CardCell.self)
@@ -34,21 +36,71 @@ final class GameController: UIViewController {
     
     private func setupActions() {
         mainView.oneMoreCard.addTarget(self, action: #selector(addOneMoreCard), for: .touchUpInside)
+        mainView.endTurn.addTarget(self, action: #selector(endPlayerTurn), for: .touchUpInside)
+        mainView.refreshScore.addTarget(self, action: #selector(handleRefreshScore), for: .touchUpInside)
+    }
+    
+    private func setupViewModelCallBacks() {
+        viewModel.scoreWasRefreshed = {}
+        
+        viewModel.endTurnButtonStateChanged = { [weak self] isEnabled in
+            //self?.mainView.endTurn.isEnabled = isEnabled // TODO uncomit after adding AI opponent
+        }
+        
+        viewModel.playerGetNewCardToHisHand = { [weak self] in
+            self?.mainView.playerCardsCollection.reloadData()
+            guard let lastIndexPath = self?.mainView.playerCardsCollection.lastIndexPath() else { return }
+            self?.mainView.playerCardsCollection.scrollToItem(at: lastIndexPath, at: .right, animated: true)
+        }
+        viewModel.opponentGetNewCardToHisHand = { [weak self] in
+            self?.mainView.opponentCardsCollection.reloadData()
+            guard let lastIndexPath = self?.mainView.opponentCardsCollection.lastIndexPath() else { return }
+            self?.mainView.opponentCardsCollection.scrollToItem(at: lastIndexPath, at: .right, animated: true)
+        }
+        
+        viewModel.playerWinGame = { [weak self] playerPoints, opponentPoints in
+            self?.showAlertWith(title: "Win", message: "Your points = \(playerPoints)\nOpponent points = \(opponentPoints)")
+        }
+        viewModel.playerLoseGame = { [weak self] playerPoints, opponentPoints in
+            self?.showAlertWith(title: "Lose", message: "Your points = \(playerPoints)\nOpponent points = \(opponentPoints)")
+        }
+        viewModel.playerDrawGame = { [weak self] pointsBoth in
+            self?.showAlertWith(title: "Draw", message: "Both points = \(pointsBoth)")
+        }
+        
+        viewModel.playerPointsChanged = { [weak self] points in
+            self?.mainView.playerPoints.text = "Points: \(points)"
+        }
+        viewModel.opponentPointsChanged = { [weak self] points in
+            self?.mainView.opponentPoints.text = "Points: \(points)"
+        }
+        viewModel.playerWinsChanged = { [weak self] wins in
+            self?.mainView.playerWins.text = "Wins: \(wins)"
+        }
+        viewModel.opponentWinsChanged = { [weak self] wins in
+            self?.mainView.opponentWins.text = "Wins: \(wins)"
+        }
+        viewModel.removeAllCardsFromPlayersHand = { [weak self] in
+            self?.mainView.playerCardsCollection.reloadData()
+        }
+        viewModel.removeAllCardsFromOpponentsHand = { [weak self] in
+            self?.mainView.opponentCardsCollection.reloadData()
+        }
     }
 }
 
 //MARK: - Actions
 extension GameController {
+    @objc private func endPlayerTurn() {
+        viewModel.chagePlayer()
+    }
+    
     @objc private func addOneMoreCard() {
-        guard let card = viewModel.deck.takeCardFromTop() else {
-            return // TODO alert this is last card
-        }
-        
-        viewModel.playerCards.append(card)
-        mainView.playerCardsCollection.reloadData()
-        
-        guard let lastItemIndex = mainView.playerCardsCollection.lastIndexPath() else { return }
-        mainView.playerCardsCollection.scrollToItem(at: lastItemIndex, at: .right, animated: true)
+        viewModel.giveCardToActivePlayer()
+    }
+    
+    @objc private func handleRefreshScore() {
+        viewModel.refreshGameScore()
     }
 }
 
