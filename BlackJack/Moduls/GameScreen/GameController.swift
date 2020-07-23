@@ -62,13 +62,19 @@ final class GameController: UIViewController {
         }
         
         viewModel.playerWinGame = { [weak self] playerPoints, opponentPoints in
-            self?.showAlertWith(title: "Win", message: "Your points = \(playerPoints)\nOpponent points = \(opponentPoints)")
+            self?.showAlertWith(title: "Win", message: "Your points = \(playerPoints)\nOpponent points = \(opponentPoints)", compltetion: { [weak self] in
+                self?.viewModel.makeNewDraft()
+            })
         }
         viewModel.playerLoseGame = { [weak self] playerPoints, opponentPoints in
-            self?.showAlertWith(title: "Lose", message: "Your points = \(playerPoints)\nOpponent points = \(opponentPoints)")
+            self?.showAlertWith(title: "Lose", message: "Your points = \(playerPoints)\nOpponent points = \(opponentPoints)", compltetion: { [weak self] in
+                self?.viewModel.makeNewDraft()
+            })
         }
         viewModel.playerDrawGame = { [weak self] pointsBoth in
-            self?.showAlertWith(title: "Draw", message: "Both points = \(pointsBoth)")
+            self?.showAlertWith(title: "Draw", message: "Both points = \(pointsBoth)", compltetion: { [weak self] in
+                self?.viewModel.makeNewDraft()
+            })
         }
         
         viewModel.playerPointsChanged = { [weak self] points in
@@ -104,6 +110,7 @@ final class GameController: UIViewController {
 //MARK: - Actions
 extension GameController {
     @objc private func endPlayerTurn() {
+        debugPrint("SDFF1234-1213-*****")
         viewModel.endTurn()
     }
     

@@ -83,6 +83,17 @@ final class GameViewModel {
         setupOpponentCallBacks()
     }
     
+    func makeNewDraft() {
+        playerPoints = 0
+        opponentPoints = 0
+        playerCards = []
+        opponentCards = []
+        isPlayerTurn = true
+        isEndTurnButtonActive = true
+        isOpponentFinishTurn = false
+        deck.makeNewDraft()
+    }
+    
     func opponentFinishTurn() {
         let condition = checkForWinCondition()
         switch condition {
@@ -94,17 +105,15 @@ final class GameViewModel {
             playerWinGame?(playerPoints, opponentPoints)
         case .drawn:
             playerDrawGame?(playerPoints)
-            prepareModelForNewDraft()
         default:
             break
         }
-        prepareModelForNewDraft()
     }
     
     func refreshGameScore() {
         playerWins = 0
         opponentWins = 0
-        prepareModelForNewDraft()
+        makeNewDraft()
         scoreWasRefreshed?(opponent.name, opponent.image)
     }
     
@@ -126,14 +135,13 @@ final class GameViewModel {
             playerCards.append(card)
             playerPoints = getPlayerPoints()
             playerGetNewCardToHisHand?()
+            calculateWinConditionState()
         } else {
             opponentCards.append(card)
             opponentPoints = getOpponentPoints()
             opponentGetNewCardToHisHand?()
             opponent.getNewCardToMyHand()
         }
-        
-        calculateWinConditionState()
     }
 }
 
@@ -166,17 +174,6 @@ extension GameViewModel {
         }
     }
     
-    private func prepareModelForNewDraft() {
-        playerPoints = 0
-        opponentPoints = 0
-        playerCards = []
-        opponentCards = []
-        isPlayerTurn = true
-        isEndTurnButtonActive = true
-        isOpponentFinishTurn = false
-        deck.makeNewDraft()
-    }
-    
     private func calculateWinConditionState() {
         let condition = checkForWinCondition()
         if isPlayerTurn {
@@ -184,24 +181,20 @@ extension GameViewModel {
             case .win:
                 playerWins += 1
                 playerWinGame?(playerPoints, opponentPoints)
-                prepareModelForNewDraft()
             case .lose:
                 opponentWins += 1
                 playerLoseGame?(playerPoints, opponentPoints)
-                prepareModelForNewDraft()
-            default: break
+            default: return
             }
         } else {
             switch condition {
             case .win:
                 opponentWins += 1
                 playerLoseGame?(playerPoints, opponentPoints)
-                prepareModelForNewDraft()
             case .lose:
                 playerWins += 1
                 playerWinGame?(playerPoints, opponentPoints)
-                prepareModelForNewDraft()
-            default: break
+            default: return
             }
         }
     }

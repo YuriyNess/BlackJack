@@ -6,6 +6,17 @@
 //  Copyright © 2020 YuriyFpc. All rights reserved.
 //
 
+final class OpponentsFactory {
+    static func chooseOneWishGrantAsOpponent() -> Opponent {
+        return Opponent(name: "O.W.Grant", image: "", replicas: [
+            "Nice try",
+            "You almost win!",
+            "Glad to be of service",
+            "I don't quete follow you"
+        ])
+    }
+}
+
 struct Opponent {
     var name: String
     var image: String
@@ -29,16 +40,5 @@ struct Opponent {
         } else {
             finishThisTurn()
         }
-    }
-}
-
-final class OpponentsFactory {
-    static func chooseOneWishGrantAsOpponent() -> Opponent {
-        return Opponent(name: "O.W.Grant", image: "", replicas: [
-            "Nice try",
-            "You almost win!",
-            "Glad to be of service",
-            "I don't quete follow you"
-        ])
     }
 }

@@ -12,7 +12,7 @@ import SnapKit
 final class GameView: UIView {
     
     static let labelTextHeigh: CGFloat = SizeHelper.sizeW(18)
-    static let buttonTextHeigh: CGFloat = SizeHelper.sizeW(22)
+    static let buttonTextHeigh: CGFloat = SizeHelper.sizeW(28)
     static let deskHeigh: CGFloat = SizeHelper.sizeH(121)
     
     let opponentAvatar: UIImageView = {
@@ -90,10 +90,8 @@ final class GameView: UIView {
         obj.backgroundColor = .clear
         obj.layer.borderWidth = 2
         obj.layer.borderColor = UIColor.white.cgColor
-        let attrString = NSAttributedString(string: "Done", attributes: [
-            .font: UIFont.systemFont(ofSize: buttonTextHeigh, weight: .medium),
-            .foregroundColor: UIColor.white])
-        obj.setAttributedTitle(attrString, for: .normal)
+        obj.tintColor = .white
+        obj.setImage(UIImage(named: "tick")?.withRenderingMode(.alwaysTemplate), for: .normal)
         obj.cornerRadius = 8
         return obj
     }()
