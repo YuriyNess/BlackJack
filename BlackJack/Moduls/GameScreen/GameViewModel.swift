@@ -6,14 +6,17 @@
 //  Copyright © 2020 YuriyFpc. All rights reserved.
 //
 
+import Foundation
+
 fileprivate enum PlayerState {
     case win
     case lose
+    case drawn
     case next
 }
 
 final class GameViewModel {
-    var scoreWasRefreshed: (()->Void)?
+    var scoreWasRefreshed: ((String,String)->Void)?
     var endTurnButtonStateChanged: ((Bool)->Void)?
     var playerGetNewCardToHisHand: (()->Void)?
     var opponentGetNewCardToHisHand: (()->Void)?
@@ -26,6 +29,8 @@ final class GameViewModel {
     var opponentWinsChanged: ((Int)->Void)?
     var removeAllCardsFromPlayersHand: (()->Void)?
     var removeAllCardsFromOpponentsHand: (()->Void)?
+    var opponentDecideToTakeOneMoreCard: (()->Void)?
+    var opponentDecideToFinishTurn: (()->Void)?
     
     var opponentCards: [Card] = [] {
         didSet {
@@ -43,6 +48,9 @@ final class GameViewModel {
     }
     
     private var deck = Deck()
+    private var opponent: Opponent
+    
+    private var isOpponentFinishTurn = false
     private var isPlayerTurn = true
     private var isEndTurnButtonActive = true {
         didSet {
@@ -70,46 +78,44 @@ final class GameViewModel {
         }
     }
     
+    init() {
+        opponent = OpponentsFactory.chooseOneWishGrantAsOpponent() // TODO make reactivev with rx-Swift
+        setupOpponentCallBacks()
+    }
+    
     func opponentFinishTurn() {
-        if playerPoints > opponentPoints {
-            playerWins += 1
-            playerWinGame?(playerPoints, opponentPoints)
-            prepareModelForNewDraft()
-        } else if playerPoints < opponentPoints {
+        let condition = checkForWinCondition()
+        switch condition {
+        case .win:
             opponentWins += 1
             playerLoseGame?(playerPoints, opponentPoints)
-            prepareModelForNewDraft()
-        } else {
+        case .lose:
+            playerWins += 1
+            playerWinGame?(playerPoints, opponentPoints)
+        case .drawn:
             playerDrawGame?(playerPoints)
             prepareModelForNewDraft()
+        default:
+            break
         }
+        prepareModelForNewDraft()
     }
     
     func refreshGameScore() {
         playerWins = 0
         opponentWins = 0
         prepareModelForNewDraft()
-        scoreWasRefreshed?()
+        scoreWasRefreshed?(opponent.name, opponent.image)
     }
     
-    private func prepareModelForNewDraft() {
-        playerPoints = 0
-        opponentPoints = 0
-        playerCards = []
-        opponentCards = []
-        isPlayerTurn = true
-        isEndTurnButtonActive = true
-        deck.makeNewDraft()
-    }
-    
-    func chagePlayer() {
-        isPlayerTurn = !isPlayerTurn
-        //testing TODO - remove
+    func endTurn() {
         if isPlayerTurn == true {
-            opponentFinishTurn()
+            isPlayerTurn = false
+            isEndTurnButtonActive = false
+            opponentDecideToTakeOneMoreCard?()
+        } else {
+            calculateWinConditionState()
         }
-        //--
-        isEndTurnButtonActive = !isEndTurnButtonActive
     }
     
     func giveCardToActivePlayer() {
@@ -124,9 +130,51 @@ final class GameViewModel {
             opponentCards.append(card)
             opponentPoints = getOpponentPoints()
             opponentGetNewCardToHisHand?()
+            opponent.getNewCardToMyHand()
         }
         
         calculateWinConditionState()
+    }
+}
+
+//MARK: - Private functions
+extension GameViewModel {
+    private func setupOpponentCallBacks() {
+        //Supply data
+        opponent.whatIsMyScore = { [weak self] in
+            self?.opponentWins ?? 0
+        }
+        opponent.whatIsPlayerScore = { [weak self] in
+            self?.playerWins ?? 0
+        }
+        opponent.howManyPointsIHave = { [weak self] in
+            self?.opponentPoints ?? 0
+        }
+        opponent.howManyPointsPlayerHave = { [weak self] in
+            self?.playerPoints ?? 0
+        }
+
+        //Sending events
+        opponent.takeOneMoreCard = { [weak self] in
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
+                self?.opponentDecideToTakeOneMoreCard?()
+            }
+        }
+        opponent.finishThisTurn = { [weak self] in
+            self?.isOpponentFinishTurn = true
+            self?.opponentDecideToFinishTurn?()
+        }
+    }
+    
+    private func prepareModelForNewDraft() {
+        playerPoints = 0
+        opponentPoints = 0
+        playerCards = []
+        opponentCards = []
+        isPlayerTurn = true
+        isEndTurnButtonActive = true
+        isOpponentFinishTurn = false
+        deck.makeNewDraft()
     }
     
     private func calculateWinConditionState() {
@@ -182,12 +230,29 @@ final class GameViewModel {
             }
         } else {
             let points = getOpponentPoints()
-            if points == 21 {
-                return .win
-            } else if points > 21 {
-                return .lose
+            if isOpponentFinishTurn {
+                if points == 21 {
+                    return .win
+                } else if points > 21 {
+                    return .lose
+                } else {
+                    let playerPoints = getPlayerPoints()
+                    if points > playerPoints {
+                        return .win
+                    } else if points == playerPoints {
+                        return .drawn
+                    } else {
+                        return .lose
+                    }
+                }
             } else {
-                return .next
+                if points == 21 {
+                    return .win
+                } else if points > 21 {
+                    return .lose
+                } else {
+                    return .next
+                }
             }
         }
     }

@@ -15,6 +15,7 @@
 		82060B4E24C72B2C00D58A7F /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4D24C72B2C00D58A7F /* CardCell.swift */; };
 		82060B5024C72CD400D58A7F /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B4F24C72CD400D58A7F /* Deck.swift */; };
 		82060B5224C7519100D58A7F /* UICollectionView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B5124C7519100D58A7F /* UICollectionView+Scroll.swift */; };
+		82060B5424C9A78F00D58A7F /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82060B5324C9A78F00D58A7F /* Opponent.swift */; };
 		8229441124C69E5E000397F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229441024C69E5E000397F7 /* AppDelegate.swift */; };
 		8229441324C69E5E000397F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229441224C69E5E000397F7 /* SceneDelegate.swift */; };
 		8229441A24C69E63000397F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8229441924C69E63000397F7 /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		82060B4D24C72B2C00D58A7F /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		82060B4F24C72CD400D58A7F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		82060B5124C7519100D58A7F /* UICollectionView+Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Scroll.swift"; sourceTree = "<group>"; };
+		82060B5324C9A78F00D58A7F /* Opponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 		8229440D24C69E5E000397F7 /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8229441024C69E5E000397F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8229441224C69E5E000397F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				82060B4F24C72CD400D58A7F /* Deck.swift */,
+				82060B5324C9A78F00D58A7F /* Opponent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				82ED44F424C6C7B500647FD4 /* DefaultAlertHelper.swift in Sources */,
 				82ED44F224C6C7B500647FD4 /* ImageViewLoader.swift in Sources */,
 				82060B5024C72CD400D58A7F /* Deck.swift in Sources */,
+				82060B5424C9A78F00D58A7F /* Opponent.swift in Sources */,
 				82ED446D24C6C71500647FD4 /* Roboto.swift in Sources */,
 				82ED445824C6C71500647FD4 /* SoundedButton.swift in Sources */,
 				82ED44FC24C6C7B500647FD4 /* TokenLoaderProtocol.swift in Sources */,

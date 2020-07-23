@@ -41,10 +41,13 @@ final class GameController: UIViewController {
     }
     
     private func setupViewModelCallBacks() {
-        viewModel.scoreWasRefreshed = {}
+        viewModel.scoreWasRefreshed = { [weak self] opponentName, imageString in
+            self?.mainView.opponentName.text = opponentName //TODO remove on adding rx
+            self?.mainView.opponentAvatar.image = UIImage(named: opponentName)
+        }
         
         viewModel.endTurnButtonStateChanged = { [weak self] isEnabled in
-            //self?.mainView.endTurn.isEnabled = isEnabled // TODO uncomit after adding AI opponent
+            self?.mainView.endTurn.isEnabled = isEnabled
         }
         
         viewModel.playerGetNewCardToHisHand = { [weak self] in
@@ -86,13 +89,22 @@ final class GameController: UIViewController {
         viewModel.removeAllCardsFromOpponentsHand = { [weak self] in
             self?.mainView.opponentCardsCollection.reloadData()
         }
+        
+        //Opponent sending events
+        viewModel.opponentDecideToTakeOneMoreCard = { [weak self] in
+            self?.addOneMoreCard()
+        }
+        
+        viewModel.opponentDecideToFinishTurn = { [weak self] in
+            self?.viewModel.opponentFinishTurn()
+        }
     }
 }
 
 //MARK: - Actions
 extension GameController {
     @objc private func endPlayerTurn() {
-        viewModel.chagePlayer()
+        viewModel.endTurn()
     }
     
     @objc private func addOneMoreCard() {
