@@ -110,7 +110,6 @@ final class GameController: UIViewController {
 //MARK: - Actions
 extension GameController {
     @objc private func endPlayerTurn() {
-        debugPrint("SDFF1234-1213-*****")
         viewModel.endTurn()
     }
     
